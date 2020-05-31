@@ -6,10 +6,11 @@ import lombok.Data;
 public class Event<T> {
 
     private Long chatId;
-    private Long timestamp;
+    private Long timestamp = System.currentTimeMillis();
     private StatusCode statusCode = StatusCode.SUCCESS;
     private String statusMessage;
     private boolean global;
+    private String responseTopicName;
 
     private T payload;
 
@@ -21,6 +22,7 @@ public class Event<T> {
         newEvent.setStatusCode(statusCode);
         newEvent.setStatusMessage(statusMessage);
         newEvent.setGlobal(global);
+        newEvent.setResponseTopicName(responseTopicName);
         return newEvent;
     }
 }
